@@ -19,9 +19,14 @@ img {
 
 .accordion__container {
   width: 100%;
+  cursor: pointer;
 }
 
-.accordion__container > div {
+.accordion__container input {
+  display: none;
+}
+
+.accordion__container .accordion__element {
   border-top: 0.1em solid rgba(0, 0, 0, 0.3);
   padding: 1.5em;
 }
@@ -32,19 +37,38 @@ img {
   justify-content: center;
   align-items: center;
   height: 0;
-  transition: all 0.3s linear;
+  transition: 0.3s;
 }
 
 .accordion__container label {
   width: 100%;
-  display: block;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-size: 2em;
-  color: #000;
+  color: skyblue;
   font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.accordion__container input {
-  display: none;
+.accordion__container:hover label {
+  color: #000;
+}
+
+.accordion__container:hover label::after {
+  font-family: 'FontAwesome';
+  content: '\f067';
+  font-weight: bolder;
+}
+
+.accordion__container input:checked ~ label {
+  color: #000;
+}
+
+.accordion__container:hover input:checked + label::after {
+  font-family: 'FontAwesome';
+  content: '\f00d';
 }
 
 .accordion__container input:checked ~ .accordion-content,
@@ -52,5 +76,5 @@ img {
   height: auto;
   margin-top: 0.5em;
   width: 100%;
-  transition: all 0.3s linear;
+  transition: 0.3s;
 }
