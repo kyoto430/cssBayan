@@ -5,7 +5,7 @@ h1 {
 }
 
 img {
-  max-width: 31em;
+  max-width: 10em;
   height: 0;
 }
 
@@ -26,24 +26,49 @@ img {
   display: none;
 }
 
-.accordion__container .accordion__element {
+.accordion__container:hover label {
+  color: #000;
+}
+
+.accordion__container:hover p::after {
+  font-family: 'FontAwesome';
+  content: '\f067';
+  font-weight: bolder;
+}
+
+.accordion__container:hover input:checked + p::after {
+  font-family: 'FontAwesome';
+  content: '\f00d';
+}
+
+.accordion__container input:checked ~ label .accordion-content,
+.accordion__container input:checked ~ label .accordion-content > img {
+  height: auto;
+  margin-top: 0.5em;
+}
+
+.accordion__element {
   border-top: 0.1em solid rgba(0, 0, 0, 0.3);
   padding: 1.5em;
 }
 
-.accordion__container .accordion-content {
+.accordion__element input:checked ~ label {
+  color: #000;
+}
+
+.accordion__element > label > .accordion-content {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 0;
-  transition: 0.3s;
+  transition: 0.5s;
 }
 
-.accordion__container label {
+.accordion__element label {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
   font-size: 2em;
   color: skyblue;
@@ -52,29 +77,24 @@ img {
   transition: 0.3s;
 }
 
-.accordion__container:hover label {
-  color: #000;
+label > p {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.accordion__container:hover label::after {
-  font-family: 'FontAwesome';
-  content: '\f067';
-  font-weight: bolder;
-}
-
-.accordion__container input:checked ~ label {
-  color: #000;
-}
-
-.accordion__container:hover input:checked + label::after {
+.accordion__element:hover p::after {
   font-family: 'FontAwesome';
   content: '\f00d';
 }
 
-.accordion__container input:checked ~ .accordion-content,
-.accordion__container input:checked ~ .accordion-content > img {
+.accordion__element:active label {
+  color: skyblue;
+}
+
+.accordion__element:hover .accordion-content,
+.accordion__element:hover .accordion-content > img {
   height: auto;
   margin-top: 0.5em;
-  width: 100%;
-  transition: 0.3s;
 }
