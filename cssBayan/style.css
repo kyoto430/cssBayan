@@ -33,7 +33,6 @@ img {
 .accordion__container:hover p::after {
   font-family: 'FontAwesome';
   content: '\f067';
-  font-weight: bolder;
 }
 
 .accordion__container:hover input:checked + p::after {
@@ -45,11 +44,13 @@ img {
 .accordion__container input:checked ~ label .accordion-content > img {
   height: auto;
   margin-top: 0.5em;
+  width: 100%;
 }
 
 .accordion__element {
   border-top: 0.1em solid rgba(0, 0, 0, 0.3);
-  padding: 1.5em;
+  padding: 1.5em 0;
+  margin: 0 1em;
 }
 
 .accordion__element input:checked ~ label {
@@ -62,7 +63,7 @@ img {
   justify-content: center;
   align-items: center;
   height: 0;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 
 .accordion__element label {
@@ -97,4 +98,62 @@ label > p {
 .accordion__element:hover .accordion-content > img {
   height: auto;
   margin-top: 0.5em;
+  width: 100%;
+}
+
+@media (max-width: 320px) {
+  h1 {
+    font-size: 2em;
+    padding: 0.5em 0;
+  }
+
+  img {
+    max-width: 15em;
+  }
+
+  .wrapper {
+    max-width: 100%;
+  }
+
+  .accordion__element label {
+    font-size: 1em;
+  }
+}
+
+@media (width: 820px) {
+  h1 {
+    font-size: 3em;
+    padding: 1em 0;
+  }
+
+  img {
+    max-width: 20em;
+  }
+
+  .wrapper {
+    max-width: 75em;
+  }
+
+  .accordion__element label {
+    font-size: 2em;
+  }
+}
+
+@media (min-width: 1920px) {
+  h1 {
+    font-size: 4em;
+    padding: 2em 0;
+  }
+
+  img {
+    max-width: 25em;
+  }
+
+  .wrapper {
+    max-width: 90em;
+  }
+
+  .accordion__element label {
+    font-size: 3em;
+  }
 }
