@@ -1,0 +1,159 @@
+h1 {
+  font-size: 3em;
+  font-weight: bold;
+  padding: 1em 0;
+}
+
+img {
+  max-width: 10em;
+  height: 0;
+}
+
+.wrapper {
+  max-width: 75em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.accordion__container {
+  width: 100%;
+  cursor: pointer;
+}
+
+.accordion__container input {
+  display: none;
+}
+
+.accordion__container:hover label {
+  color: #000;
+}
+
+.accordion__container:hover p::after {
+  font-family: 'FontAwesome';
+  content: '\f067';
+}
+
+.accordion__container:hover input:checked + p::after {
+  font-family: 'FontAwesome';
+  content: '\f00d';
+}
+
+.accordion__container input:checked ~ label .accordion-content,
+.accordion__container input:checked ~ label .accordion-content > img {
+  height: auto;
+  margin-top: 0.5em;
+  width: 100%;
+}
+
+.accordion__element {
+  border-top: 0.1em solid rgba(0, 0, 0, 0.3);
+  padding: 1.5em 0;
+  margin: 0 1em;
+}
+
+.accordion__element input:checked ~ label {
+  color: #000;
+}
+
+.accordion__element > label > .accordion-content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 0;
+  transition: 0.3s;
+}
+
+.accordion__element label {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 2em;
+  color: skyblue;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+label > p {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.accordion__element:hover p::after {
+  font-family: 'FontAwesome';
+  content: '\f00d';
+}
+
+.accordion__element:active label {
+  color: skyblue;
+}
+
+.accordion__element:hover .accordion-content,
+.accordion__element:hover .accordion-content > img {
+  height: auto;
+  margin-top: 0.5em;
+  width: 100%;
+}
+
+@media (max-width: 320px) {
+  h1 {
+    font-size: 2em;
+    padding: 0.5em 0;
+  }
+
+  img {
+    max-width: 15em;
+  }
+
+  .wrapper {
+    max-width: 100%;
+  }
+
+  .accordion__element label {
+    font-size: 1em;
+  }
+}
+
+@media (width: 820px) {
+  h1 {
+    font-size: 3em;
+    padding: 1em 0;
+  }
+
+  img {
+    max-width: 20em;
+  }
+
+  .wrapper {
+    max-width: 75em;
+  }
+
+  .accordion__element label {
+    font-size: 2em;
+  }
+}
+
+@media (min-width: 1920px) {
+  h1 {
+    font-size: 4em;
+    padding: 2em 0;
+  }
+
+  img {
+    max-width: 25em;
+  }
+
+  .wrapper {
+    max-width: 90em;
+  }
+
+  .accordion__element label {
+    font-size: 3em;
+  }
+}
